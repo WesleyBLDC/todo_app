@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { CheckBox, Avatar } from 'react-native-elements'
-import { blue } from 'ansi-colors';
 import Header from './components/header'; //how to grab the header component from the header file
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import Todo from './screens/todo';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -27,10 +28,22 @@ export default class App extends React.Component {
         center
         title='Do Task A'
         />
+
+        <Button
+          title="Go to Todo List"
+          onPress={() => this.props.navigation.navigate('TodoScreen')}
+        />
       </View>           
     );
   }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: App,
+  TodoScreen: Todo,
+});
+
+const AppContainer = createAppContainer(AppNavigator);
 
 const styles = StyleSheet.create({
   container: {
@@ -44,3 +57,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   }
 });
+
+export default AppContainer;
