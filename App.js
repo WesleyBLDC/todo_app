@@ -13,12 +13,9 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header textIwant={"hello"}/>
+        <Header textIwant={"Da Todo App"}/>
         <View style={{padding:20}}/>
-        <Button 
-        title={"Hello"} 
-        onPress={() => { console.log('hello'); }}>
-        </Button>
+  
         <Avatar
         xlarge
         rounded
@@ -26,11 +23,6 @@ class App extends React.Component {
         onPress={() => console.log("Works!")}
         activeOpacity={0.7}
         containerStyle={{marginTop: 10, marginBottom: 10}}
-        />
-        <Text style={styles.bigblue}>Testing</Text>
-        <CheckBox
-        center
-        title='Do Task A'
         />
 
         <Button
